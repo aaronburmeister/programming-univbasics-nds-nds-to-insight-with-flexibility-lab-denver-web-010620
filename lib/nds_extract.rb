@@ -74,7 +74,11 @@ def gross_per_studio(collection)
   index = 0
   studios = {}
   while index < collection.length do
-    studios[collection[index][:studio]] += collection[index][:worldwide_gross]
+    if studios[collection[index][:studio]]
+      studios[collection[index][:studio]] += collection[index][:worldwide_gross]
+    else
+      studios[collection[index][:studio]] = collection[index][:worldwide_gross]
+    end
     index += 1
   end
   
